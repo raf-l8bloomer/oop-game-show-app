@@ -10,18 +10,16 @@ class Phrase{
     /**
     * Display phrase on game board
     */
-    addPhraseToDisplay() {
-        this.phrase.forEach(character => {
+    addPhraseToDisplay(){
+        this.phrase.split("").forEach(character => {
             const phraseDiv = document.querySelector('#phrase');
-            const ul = phraseDiv.firstChild
             const li = document.createElement('li');
-            ul.appendChild(li);
+            li.textContent = character;
+            phraseDiv.appendChild(li);
             if (character !== " ") {
-                li.setAttribute('class', character);
-                li.textContent = character;
+                li.setAttribute('class', `hide letter ${character}`);
             } else {
                 li.setAttribute('class', 'space');
-                li.textContent = character;
             }
         }
     )}
