@@ -8,10 +8,5 @@
 // const phrase = new Phrase('Life is like a box of chocolates');
 // console.log(`Phrase - phrase: ${phrase.phrase}`);
 
-const logPhrase = (phrase) => {
-    console.log( phrase.phrase);
-    };
-    const game = new Game();
-    logPhrase(game.getRandomPhrase());
-
+const game = new Game();
 game.getRandomPhrase().addPhraseToDisplay();

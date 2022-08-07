@@ -11,9 +11,21 @@ class Phrase{
     * Display phrase on game board
     */
     addPhraseToDisplay() {
-        
+        this.phrase.forEach(character => {
+            const phraseDiv = document.querySelector('#phrase');
+            const ul = phraseDiv.firstChild
+            const li = document.createElement('li');
+            ul.appendChild(li);
+            if (character !== " ") {
+                li.setAttribute('class', character);
+                li.textContent = character;
+            } else {
+                li.setAttribute('class', 'space');
+                li.textContent = character;
+            }
+        }
+    )}
 
-    }
 
     checkLetter(){
 
