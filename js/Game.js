@@ -6,14 +6,15 @@ class Game {
     constructor () {
         this.missed = 0;
         this.phrases = [
-            {phrase: 'Alien Superstar'},
-            {phrase: 'America Has A Problem'},
-            {phrase: 'Church Girl'},
-            {phrase: 'Cuff It'},
-            {phrase: 'Plastic Off The Sofa'}
+            new Phrase ('Alien Superstar'),
+            new Phrase ('America Has A Problem'),
+            new Phrase ('Church Girl'),
+            new Phrase ('Cuff It'),
+            new Phrase ('Plastic Off The Sofa')
         ];
         this.activePhrase = null;
     }
+
 
     /**
     * Begins game by selecting a random phrase and displaying it to user
@@ -23,11 +24,7 @@ class Game {
     startGame(){
         document.querySelector('#overlay').style.display = 'none';
         this.getRandomPhrase();
-        this.activePhrase = this.getRandomPhrase();
-        const phrase = new Phrase(this.activePhrase.phrase);
-        phrase.addPhraseToDisplay();
-        
-
+        new Phrase(this.activePhrase.phrase).addPhraseToDisplay();
     }
 
     /**
@@ -39,4 +36,15 @@ class Game {
         const randomPhrase = this.phrases[Math.floor(Math.random() * this.phrases.length)];
         return randomPhrase;
     }
+
+    /**
+    * Allows game interaction with clicks
+    * @return {Object} chosen letters to check if in phrase
+    */
+
+    handleInteraction(){
+
+
+    }
+
 }
