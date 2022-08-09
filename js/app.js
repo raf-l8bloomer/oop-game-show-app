@@ -5,14 +5,15 @@
 
 
 
-// let game;
+let game;
 
 
-// document.querySelector('#btn__reset').addEventListener('click', function(){
+document.querySelector('#btn__reset').addEventListener('click', function(){
     
-//     game = new Game;
-//     game.startGame();
-// })
+    game = new Game
+    game.startGame();
+    console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
+})
 
 // const keys = document.querySelectorAll('.key');
 //         keys.forEach(key => key.addEventListener('click',(e) => {
@@ -21,7 +22,3 @@
 //         }));
 
 
-const game = new Game();
-game.phrases.forEach((phrase, index) => {
-console.log(`Phrase ${index} - phrase: ${phrase.phrase}`);
-});

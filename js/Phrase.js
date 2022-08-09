@@ -29,19 +29,23 @@ class Phrase{
     // * Checks if passed letter is in phrase
     // * @param (string) letter - Letter to check
     // */
-
     checkLetter(letter) {
-
+        if (this.phrase.split("").includes(letter)){
+            console.log('true');
+            this.showMatchedLetter(letter);
+        } else {
+            console.log('false');
+        }
     };
 
     // /**
     // * Displays passed letter on screen after a match is found
     // * @param (string) letter - Letter to display
     // */
-
     showMatchedLetter(letter){
-
+        const matched = document.querySelectorAll(`.${letter}`);
+        // matched.classList.replace('hide', 'show');
+        console.log(matched);
     }
-
 
 }
