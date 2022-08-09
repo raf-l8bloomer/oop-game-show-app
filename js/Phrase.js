@@ -44,8 +44,7 @@ class Phrase{
     // */
     showMatchedLetter(letter){
         const matched = document.querySelectorAll(`.${letter}`);
-        // matched.classList.replace('hide', 'show');
-        console.log(matched);
+        matched.forEach(match => match.classList.replace('hide', 'show'));
     }
 
 }
