@@ -53,10 +53,43 @@ class Game {
     won
     */
     checkForWin() {
-        if (){
-            
-        }
+
+        const activeLetters = document.querySelectorAll('.letter');
+        activeLetters.forEach(letter => {
+            if (letter.classList.contains('hide')) {
+                console.log('false');
+            } else {
+                console.log('true');
+            }
+        })
     };
     
+    /**
+    * Increases the value of the missed property
+    * Removes a life from the scoreboard
+    * Checks if player has remaining lives and ends game if player is out
+    */
+    removeLife() {
+        this.missed += 1;
+        document.querySelector('.tries').style.display = "none";
+        if (this.missed === 5){
+            //end game
+            console.log('GAME OVER');
+        }
+    };
+
+    /**
+    * Displays game over message
+    * @param {boolean} gameWon - Whether or not the user won the game
+    */
+    gameOver(gameWon) {
+        if (gameWon){
+            // winner
+        } else {
+            //loser
+            document.querySelector(#game-over-message).innerHTML = "GAME OVER";
+        }
+    };
+
 
 }

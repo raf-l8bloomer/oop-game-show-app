@@ -31,10 +31,11 @@ class Phrase{
     // */
     checkLetter(letter) {
         if (this.phrase.split("").includes(letter)){
-            console.log('true');
+            return true;
             this.showMatchedLetter(letter);
         } else {
-            console.log('false');
+            return false;
+            
         }
     };
 
