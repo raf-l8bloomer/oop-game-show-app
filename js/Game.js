@@ -71,9 +71,10 @@ class Game {
     */
     removeLife() {
         this.missed += 1;
-        document.querySelector('.tries').style.display = "none";
+        const hearts = document.querySelectorAll('.tries img');
+        
         if (this.missed === 5){
-            //end game
+            this.gameOver
             console.log('GAME OVER');
         }
     };
@@ -87,7 +88,7 @@ class Game {
             // winner
         } else {
             //loser
-            document.querySelector(#game-over-message).innerHTML = "GAME OVER";
+            document.querySelector('#game-over-message').innerHTML = "GAME OVER";
         }
     };
 
