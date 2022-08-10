@@ -53,15 +53,11 @@ class Game {
     won
     */
     checkForWin() {
-
-        const activeLetters = document.querySelectorAll('.letter');
-        activeLetters.forEach(letter => {
-            if (letter.classList.contains('hide')) {
-                console.log('false');
-            } else {
-                console.log('true');
-            }
-        })
+        const hide = document.querySelectorAll('.hide');
+        console.log(hide);
+        if(hide.length > 0) {
+            return false
+        };
     };
     
     /**
