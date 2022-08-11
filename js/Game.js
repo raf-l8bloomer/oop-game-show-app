@@ -25,7 +25,7 @@ class Game {
         document.querySelector('#overlay').style.display = 'none';
         const phrase = this.getRandomPhrase()
         phrase.addPhraseToDisplay();
-        this.activePhrase = phrase ;
+        this.activePhrase = phrase;
     }
 
     /**
@@ -43,7 +43,21 @@ class Game {
     * @return {Object} chosen letters to check if in phrase
     */
 
-    handleInteraction(){
+    handleInteraction(button){
+        console.log(button);
+        const letter = button.textContent;
+        button.disabled = true;
+        if(this.activePhrase.checkLetter(letter)) {
+            button.classList.add('chosen');
+            this.activePhrase.showMatchedLetter(letter);
+            this.checkForWin();
+            if (this.checkForWin()){
+                this.gameOver(this.checkForWin());
+            }
+        } else {
+            button.classList.add('wrong');
+            this.removeLife();
+        }
 
 
     }
@@ -85,12 +99,51 @@ class Game {
         document.querySelector('#overlay').style.display = '';
         if (gameWon){
             h1.innerHTML = "Congratulations WINNER!"
-            start.classList.replace('start','win');
+            start.classList.add('win');
+            this.resetGame();
         } else {
             h1.innerHTML = "Sorry, try again next time~"
-            start.classList.replace('start','lose');
+            start.classList.add('lose');
+            this.resetGame();
         };
     }   
+
+     /**
+    * Removes all 'li' elements from Phrase 'ul'
+    * Resets shown letters on gameboard 
+    * Enables keyboard buttons
+    * Resets all hearts/lives
+    */
+
+    resetGame (){
+        // const phraseDiv = document.querySelector('#phrase ul');
+       
+        this.activePhrase.split("").forEach(character => {
+            const phraseDiv = document.querySelector('#phrase');
+            const li = document.querySelectorAll('li');
+            phraseDiv.removeChild(li);
+        })
+
+        while (phraseDiv.firstChild){
+             phraseDiv.removeChild(phraseDiv.firstChild)} // https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/
+              
+
+        const matched = document.querySelectorAll(`.show`);
+        matched.forEach(match => match.classList.replace('show', 'hide'));
+
+        const buttons = document.querySelectorAll('.key');
+        buttons.forEach(button => {
+            button.disabled = false;
+            button.classList.remove('chosen');
+            button.classList.remove('wrong');
+        })
+
+        const hearts = document.querySelectorAll('.tries img');
+        hearts.forEach(heart => heart.src = "images/liveHeart.png");
+
+
+
+    }
 
 
 }

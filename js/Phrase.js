@@ -32,7 +32,7 @@ class Phrase{
     checkLetter(letter) {
         if (this.phrase.split("").includes(letter)){
             return true;
-            this.showMatchedLetter(letter);
+            // this.showMatchedLetter(letter);
         } else {
             return false;
             
