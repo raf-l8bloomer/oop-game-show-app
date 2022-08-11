@@ -10,7 +10,7 @@ let game;
 
 document.querySelector('#btn__reset').addEventListener('click', function(){
     
-    game = new Game
+    game = new Game;
     game.startGame();
     console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
 })

@@ -54,10 +54,11 @@ class Game {
     */
     checkForWin() {
         const hide = document.querySelectorAll('.hide');
-        console.log(hide);
         if(hide.length > 0) {
             return false
-        };
+        } else {
+            return true;
+        }
     };
     
     /**
@@ -66,13 +67,12 @@ class Game {
     * Checks if player has remaining lives and ends game if player is out
     */
     removeLife() {
-        this.missed += 1;
-        const hearts = document.querySelectorAll('.tries img');
-        
-        if (this.missed === 5){
-            this.gameOver
-            console.log('GAME OVER');
-        }
+      const hearts = document.querySelectorAll('.tries img');
+      this.missed += 1;
+      hearts[this.missed - 1].src = "images/lostHeart.png"
+      if (this.missed === 5){
+        this.gameOver();
+      }
     };
 
     /**
@@ -80,13 +80,17 @@ class Game {
     * @param {boolean} gameWon - Whether or not the user won the game
     */
     gameOver(gameWon) {
+        const start = document.querySelector('.start');
+        const h1 = start.querySelector('h1');
+        document.querySelector('#overlay').style.display = '';
         if (gameWon){
-            // winner
+            h1.innerHTML = "Congratulations WINNER!"
+            start.classList.replace('start','win');
         } else {
-            //loser
-            document.querySelector('#game-over-message').innerHTML = "GAME OVER";
-        }
-    };
+            h1.innerHTML = "Sorry, try again next time~"
+            start.classList.replace('start','lose');
+        };
+    }   
 
 
 }
