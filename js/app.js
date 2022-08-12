@@ -7,7 +7,7 @@
 
 let game;
 
-
+// initializes Game when 'start game' is clicked'
 document.querySelector('#btn__reset').addEventListener('click', function(){
         game = new Game;
         game.startGame();
@@ -16,10 +16,9 @@ document.querySelector('#btn__reset').addEventListener('click', function(){
         
 })
 
+// captures the content of each key 'clicked' and initializes Game's handleInteraction
 const keys = document.querySelectorAll('.key');
-        keys.forEach(key => key.addEventListener('click',(e) => {
-             const chosenLetter = e.target;
-            game.handleInteraction(chosenLetter)
-        }));
-
-
+keys.forEach(key => key.addEventListener('click',(e) => {
+        const chosenLetter = e.target;
+        game.handleInteraction(chosenLetter);
+ }));

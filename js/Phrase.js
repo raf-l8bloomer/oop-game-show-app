@@ -11,11 +11,12 @@ class Phrase{
     * Display phrase on game board
     */
     addPhraseToDisplay(){
+        // splits phrase into array and creates individual elements out of characters in phrase
         this.phrase.split("").forEach(character => {
-            const phraseDiv = document.querySelector('#phrase');
+            const phraseUL = document.querySelector('#phrase ul');
             const li = document.createElement('li');
             li.textContent = character;
-            phraseDiv.appendChild(li);
+            phraseUL.appendChild(li);
             if (character !== " ") {
                 li.setAttribute('class', `hide letter ${character}`);
             } else {
@@ -32,7 +33,6 @@ class Phrase{
     checkLetter(letter) {
         if (this.phrase.split("").includes(letter)){
             return true;
-            // this.showMatchedLetter(letter);
         } else {
             return false;
             
